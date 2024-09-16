@@ -1,0 +1,50 @@
+@page "/aprende_mas"
+
+<PageTitle>Aprende Mas</PageTitle>
+
+<h1>Aprende Mas</h1>
+
+<p>En esta seccion encontraras contenido adicional para aprender mas sobre Blazor WebAssembly.</p>
+
+<div class="row">
+
+    @foreach (var Video in videos)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <img class="card-img-top" src="https://i.ytimg.com/vi/@Video.Url/hqdefault.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Video</h5>
+                    <p class="card-text">@Video.Titulo</p>
+                    <a href="https://www.youtube.com/watch?v=@Video.Url" target="_blank"
+                     class="btn btn-primary">Ver Video</a>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+@code{
+
+    class Video{
+        public string Titulo {get; set; }
+        public string Url {get; set; }
+    }
+
+
+    
+    List<Video> videos = new List<Video>{
+        new Video{Titulo = "¿Qué es Blazor?", Url = "ktDj2xD-H9s"},
+        new Video{Titulo = "CRUD Completo con Blazor", Url = "stkr4IG2VrA"},
+        new Video{Titulo = "Seguridad con JWT para aplicaciones Blazor", Url = "pfpkAkFVZuw"},
+        new Video{Titulo = "Diferencias entre Blazor Server y Blazor WebAssembly", Url = "mNBBMroUwtE"},
+        new Video{Titulo = "Blazor en 10 minutos", Url = "VDkiB5F7FH0"}
+        
+        };
+
+
+
+
+
+}
